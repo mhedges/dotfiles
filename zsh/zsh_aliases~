@@ -20,6 +20,7 @@ alias tpc='ssh -CXY beasttpc@dcube-vostro-pc1'
 alias bdaq='ssh -CXY mhedges@bdaq.local.kek.jp'
 
 alias vi='vim'
+alias vim='mvim -v'
 alias tmux_help='less ~/.tmux_commands'
 alias fcuk='fuck'
 alias fukc='fuck'
