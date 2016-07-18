@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"/.oh-my-zsh
+export ZSH=/Users/BEASTzilla/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
