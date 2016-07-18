@@ -1,0 +1,39 @@
+# ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# ssh aliases
+alias sh3='screen ssh -CXY mhedges@hepts3.phys.hawaii.edu'
+alias sd3='screen ssh -CXY mhedges@dcube.phys.hawaii.edu'
+alias skek='screen ssh -CXY mhedges@ccx.cc.kek.jp'
+alias spnnl='screen ssh -CXY hedg627@olympus.pnnl.gov'
+alias sdaq='screen ssh -CXY beastdaq@dcube-lab-pc2'
+alias sbdaq='screen ssh -CXY mhedges@bdaq.local.kek.jp'
+
+alias h3='ssh -CXY mhedges@hepts3.phys.hawaii.edu'
+alias d3='ssh -CXY mhedges@dcube.phys.hawaii.edu'
+alias kek='ssh -CXY mhedges@ccx.cc.kek.jp'
+alias pnnl='ssh -CXY hedg627@olympus.pnnl.gov'
+alias daq='ssh -CXY beastdaq@dcube-lab-pc2'
+alias tpc='ssh -CXY beasttpc@dcube-vostro-pc1'
+alias bdaq='ssh -CXY mhedges@bdaq.local.kek.jp'
+
+alias root5='(cd ~/root5; . bin/thisroot.sh)'
+#alias root6='(cd ~/root6/root-6.06.02/; . config/thisroot.sh)'
+alias root6='(cd ~/root6/config; source thisroot.sh)'
+alias vi='vim'
+alias vim='mvim -v'
+alias tmux_help='less ~/.tmux_commands'
+alias python="pythonw"
+alias fcuk='fuck'
+alias fukc='fuck'
+alias root5='pushd $(brew --prefix root) >/dev/null; . libexec/thisroot.sh; popd >/dev/null'
+
+alias yesfink='. /sw/bin/init.sh'
+alias yesconda='export PATH="/Users/BEASTzilla/anaconda2/bin":${PATH}'
+alias noconda='export PATH="/Users/BEASTzilla/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86"'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

@@ -1,0 +1,6 @@
+[user]
+	name = MichaelHedges
+	email = mhedges@hawaii.edu
+[core]
+	autocrlf = input
+	safecrlf = true
