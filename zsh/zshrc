@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"/.oh-my-zsh
+export ZSH=/Users/BEASTzilla/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -70,9 +70,11 @@ export PATH=${PATH}:$EPICS/base/bin/darwin-x86:$EPICS/base/bin/darwin-x86
 export PYEPICS_LIBCA=/opt/EPICS/base/lib/darwin-x86/libca.dylib
 export EPICS_BASE=/usr/local/epics/base-3.14.12.1
 export EPICS_HOST_ARCH=darwin-x86
+export PYTHONPATH="/usr/local/lib/root/"
+export PATH=/usr/local/php5/bin:$PATH
+export HOMEBREW_NO_ANALYTICS=1
 
-export PATH="/Users/BEASTzilla/anaconda2/bin":${PATH}
-export PYTHONPATH="/Users/BEASTzilla/anaconda2/lib:"
+#export PATH="/Users/BEASTzilla/miniconda3/bin":${PATH}
 
 #pushd $(brew --prefix root) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
 
@@ -100,3 +102,25 @@ export PYTHONPATH="/Users/BEASTzilla/anaconda2/lib:"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Set vim keybindings
+#bindkey -v
+#bindkey '^P' up-history
+#bindkey '^N' down-history
+#bindkey '^?' backward-delete-char
+#bindkey '^h' backward-delete-char
+#bindkey '^w' backward-kill-word
+#bindkey '^r' history-incremental-search-backward
+##bindkey '^jj' 
+#
+#function zle-line-init zle-keymap-select {
+#    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
+#    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $(git_custom_status) $EPS1"
+#    zle reset-prompt
+#}
+#
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+#
+#export KEYTIMEOUT=1
+

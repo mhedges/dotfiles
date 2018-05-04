@@ -1,6 +1,10 @@
 [user]
-	name = MichaelHedges
+	name = Michael Hedges
 	email = mhedges@hawaii.edu
 [core]
 	autocrlf = input
 	safecrlf = true
+	excludesfile = /Users/BEASTzilla/.gitignore_global
+	editor = mvim
+[push]
+	default = matching

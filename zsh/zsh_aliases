@@ -1,8 +1,3 @@
-# ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # ssh aliases
 alias sh3='screen ssh -CXY mhedges@hepts3.phys.hawaii.edu'
 alias sd3='screen ssh -CXY mhedges@dcube.phys.hawaii.edu'
@@ -12,27 +7,69 @@ alias sdaq='screen ssh -CXY beastdaq@dcube-lab-pc2'
 alias sbdaq='screen ssh -CXY mhedges@bdaq.local.kek.jp'
 
 alias h3='ssh -CXY mhedges@hepts3.phys.hawaii.edu'
-alias d3='ssh -CXY mhedges@dcube.phys.hawaii.edu'
-alias kek='ssh -CXY mhedges@ccx.cc.kek.jp'
+alias d3='ssh d3'
+alias kek='ssh kekcc'
 alias pnnl='ssh -CXY hedg627@olympus.pnnl.gov'
 alias daq='ssh -CXY beastdaq@dcube-lab-pc2'
 alias tpc='ssh -CXY beasttpc@dcube-vostro-pc1'
 alias bdaq='ssh -CXY mhedges@bdaq.local.kek.jp'
+alias work='ssh work'
 
-alias root5='(cd ~/root5; . bin/thisroot.sh)'
-#alias root6='(cd ~/root6/root-6.06.02/; . config/thisroot.sh)'
-alias root6='(cd ~/root6/config; source thisroot.sh)'
-alias vi='vim'
 alias vim='mvim -v'
+alias vi='vim'
 alias tmux_help='less ~/.tmux_commands'
-alias python="pythonw"
 alias fcuk='fuck'
 alias fukc='fuck'
-alias root5='pushd $(brew --prefix root) >/dev/null; . libexec/thisroot.sh; popd >/dev/null'
+alias lt='ls -lhrt'
 
 alias yesfink='. /sw/bin/init.sh'
-alias yesconda='export PATH="/Users/BEASTzilla/anaconda2/bin":${PATH}'
-alias noconda='export PATH="/Users/BEASTzilla/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86"'
+
+yesconda3() {
+  source deactivate || export PATH="/Users/BEASTZilla/miniconda3/bin":${PATH}
+  source activate py3
+  export PYTHONPATH="/Users/BEASTZilla/miniconda3/envs/py3/lib:"
+  alias python="/Users/BEASTzilla/miniconda3/envs/py3/bin/python"
+}
+
+yesconda2() {
+  source deactivate || export PATH="/Users/BEASTZilla/miniconda3/bin":${PATH};
+  source activate py2;
+  export PYTHONPATH="/Users/BEASTZilla/miniconda3/envs/py2/lib:";
+  alias python="/Users/BEASTzilla/miniconda3/envs/py2/bin/python"
+}
+
+devconda3() {
+  source deactivate || export PATH="/Users/BEASTZilla/miniconda3/bin":${PATH};
+  source activate testenv;
+  export PYTHONPATH="/Users/BEASTZilla/miniconda3/envs/py3/lib:";
+  alias python="/Users/BEASTzilla/miniconda3/envs/py3/bin/python"
+}
+
+noconda() {
+  source deactivate || export PATH="/Users/BEASTzilla/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86"
+  export ROOTSYS="/usr/local/Cellar/root6/"
+  export PYTHONPATH="/usr/local/lib/root/"
+  pushd /usr/local >/dev/null
+  . /usr/local/bin/thisroot.sh
+  popd >/dev/null
+}
+
+update_all() {
+  upgrade_oh_my_zsh 
+  noconda 
+  brew update 
+  brew upgrade 
+  yesconda2
+  conda update --all -y
+  noconda 
+  yesconda3 
+  conda update --all -y 
+  noconda
+}
+
+
+#alias gcc='gcc-7'
+#alias g++='g++-7'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
