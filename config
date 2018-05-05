@@ -1,0 +1,68 @@
+Host kekcc
+	User mhedges
+	Hostname ccx.cc.kek.jp
+	# use control hub to use only one ssh channel for all
+	# connections, faster, and password only on first connection
+	ControlMaster auto
+	ControlPath ~/.ssh/%r@%h:%p.control
+	ControlPersist 600
+
+	# Forward SSH Key Agent, this allows to log back into home
+	# machines using your local private key
+	ForwardAgent yes
+
+	# No X11 to kekcc
+	ForwardX11 no
+	ForwardX11Trusted no
+
+	# Use compressoin
+	compression yes
+
+	# Keep connection alive
+	ServerAliveInterval 60
+
+	# Use this to connect to kekcc via dcube
+	ProxyCommand ssh mhedges@dcube.phys.hawaii.edu -p 2505 -W %h:%p
+
+Host d3
+	User mhedges
+	Hostname dcube.phys.hawaii.edu
+	Port 2505
+
+	# X11 forwarding
+	ForwardX11 yes
+	ForwardX11Trusted yes
+	
+	#Use compression
+	compression yes
+
+Host work
+	User michael
+	Hostname dcube-w334-pc1
+	#
+	# use control hub to use only one ssh channel for all
+	# connections, faster, and password only on first connection
+	ControlMaster auto
+	ControlPath ~/.ssh/%r@%h:%p.control
+	ControlPersist 600
+
+	# Forward SSH Key Agent, this allows to log back into home
+	# machines using your local private key
+	ForwardAgent yes
+
+	# No X11 to kekcc
+	ForwardX11 no
+	ForwardX11Trusted no
+
+	# Use compressoin
+	compression yes
+
+	# Keep connection alive
+	ServerAliveInterval 60
+
+	# Use this to connect to kekcc via dcube
+	ProxyCommand ssh mhedges@dcube.phys.hawaii.edu -W %h:%p
+
+Host *
+   AddKeysToAgent yes
+   UseKeychain yes 
