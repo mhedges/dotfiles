@@ -13,3 +13,6 @@ ln -s ${BASEDIR}/zsh/oh-my-zsh ~/.oh-my-zsh
 
 # git
 ln -s ${BASEDIR}/zsh/gitconfig ~/.gitconfig
+
+# homebrew
+(cd homebrew/; brew bundle)
