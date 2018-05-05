@@ -24,14 +24,14 @@ alias lt='ls -lhrt'
 
 alias yesfink='. /sw/bin/init.sh'
 
-yesconda3() {
+py3() {
   source deactivate || export PATH="/Users/BEASTZilla/miniconda3/bin":${PATH}
   source activate py3
   export PYTHONPATH="/Users/BEASTZilla/miniconda3/envs/py3/lib:"
   alias python="/Users/BEASTzilla/miniconda3/envs/py3/bin/python"
 }
 
-yesconda2() {
+py2() {
   source deactivate || export PATH="/Users/BEASTZilla/miniconda3/bin":${PATH};
   source activate py2;
   export PYTHONPATH="/Users/BEASTZilla/miniconda3/envs/py2/lib:";
