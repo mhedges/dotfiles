@@ -12,7 +12,10 @@ ln -s ${BASEDIR}/zsh/zsh_aliases ~/.zsh_aliases
 ln -s ${BASEDIR}/zsh/oh-my-zsh ~/.oh-my-zsh
 
 # git
-ln -s ${BASEDIR}/zsh/gitconfig ~/.gitconfig
+ln -s ${BASEDIR}/git/gitconfig ~/.gitconfig
 
 # homebrew
 (cd homebrew/; brew bundle)
+
+# ssh
+ln -s ${BASEDIR}/ssh/config ~/.ssh/config
