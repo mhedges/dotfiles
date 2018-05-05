@@ -25,28 +25,28 @@ alias lt='ls -lhrt'
 alias yesfink='. /sw/bin/init.sh'
 
 py3() {
-  source deactivate || export PATH="$(HOME)/miniconda3/bin":${PATH}
+  source deactivate || export PATH="$HOME/miniconda3/bin":${PATH}
   source activate py3
-  export PYTHONPATH="$(HOME)/miniconda3/envs/py3/lib:"
-  alias python="$(HOME)/miniconda3/envs/py3/bin/python"
+  export PYTHONPATH="$HOME/miniconda3/envs/py3/lib:"
+  alias python="$HOME/miniconda3/envs/py3/bin/python"
 }
 
 py2() {
-  source deactivate || export PATH="$(HOME)/miniconda3/bin":${PATH};
+  source deactivate || export PATH="$HOME/miniconda3/bin":${PATH};
   source activate py2;
-  export PYTHONPATH="$(HOME)/miniconda3/envs/py2/lib:";
-  alias python="$(HOME)/miniconda3/envs/py2/bin/python"
+  export PYTHONPATH="$HOME/miniconda3/envs/py2/lib:";
+  alias python="$HOME/miniconda3/envs/py2/bin/python"
 }
 
 devconda3() {
-  source deactivate || export PATH="$(HOME)/miniconda3/bin":${PATH};
+  source deactivate || export PATH="$HOME/miniconda3/bin":${PATH};
   source activate testenv;
-  export PYTHONPATH="$(HOME)/miniconda3/envs/py3/lib:";
-  alias python="/Users/BEASTzilla/miniconda3/envs/py3/bin/python"
+  export PYTHONPATH="$HOME/miniconda3/envs/py3/lib:";
+  alias python="$HOME/miniconda3/envs/py3/bin/python"
 }
 
 noconda() {
-  source deactivate || export PATH="/$(HOME).local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86"
+  source deactivate || export PATH="/$HOME.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86"
   export ROOTSYS="/usr/local/Cellar/root6/"
   export PYTHONPATH="/usr/local/lib/root/"
   pushd /usr/local >/dev/null
