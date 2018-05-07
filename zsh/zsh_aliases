@@ -59,10 +59,10 @@ update_all() {
   noconda 
   brew update 
   brew upgrade 
-  yesconda2
+  py2
   conda update --all -y
   noconda 
-  yesconda3 
+  py3
   conda update --all -y 
   noconda
 }
