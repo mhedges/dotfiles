@@ -22,6 +22,9 @@ alias fcuk='fuck'
 alias fukc='fuck'
 alias lt='ls -lhrt'
 
+alias grep='ggrep --color'
+alias sgrep='ggrep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
+
 alias yesfink='. /sw/bin/init.sh'
 
 py3() {
