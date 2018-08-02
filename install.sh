@@ -19,3 +19,6 @@ ln -s ${BASEDIR}/git/gitconfig ~/.gitconfig
 
 # ssh
 ln -s ${BASEDIR}/ssh/config ~/.ssh/config
+
+# tmux
+ln -s ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
