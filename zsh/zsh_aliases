@@ -15,65 +15,88 @@ alias tpc='ssh -CXY beasttpc@dcube-vostro-pc1'
 alias bdaq='ssh -CXY mhedges@bdaq.local.kek.jp'
 alias work='ssh work'
 
+# App aliases
 alias vim='mvim -v'
 alias vi='vim'
+
 alias tmux_help='less ~/.tmux_commands'
+
 alias fcuk='fuck'
 alias fukc='fuck'
+
 alias lt='ls -lhrt'
 
 alias grep='ggrep --color'
 alias sgrep='ggrep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
-alias yesfink='. /sw/bin/init.sh'
+alias ag='echo "Use rg to search for"'
+
+alias hrg='history|rg'
+
+alias e='exa'
+alias el='exa --long --header --git'
+alias ela='exa --long --header --git --all'
+
+# Rust
+alias cbuild='cargo build'
+alias crun='cargo run'
+alias ccheck='cargo check'
 
 py3() {
-  source deactivate || export PATH="$HOME/miniconda3/bin":${PATH}
-  source activate py3
-  export PYTHONPATH="$HOME/miniconda3/envs/py3/lib:"
-  alias python="$HOME/miniconda3/envs/py3/bin/python"
+  #yesconda
+  conda deactivate || export PATH=$HOME/miniconda3/bin:${PATH}
+  conda activate py3
+  export PYTHONPATH=$HOME/miniconda3/envs/py3/lib:
 }
 
 py2() {
-  source deactivate || export PATH="$HOME/miniconda3/bin":${PATH};
-  source activate py2;
-  export PYTHONPATH="$HOME/miniconda3/envs/py2/lib:";
-  alias python="$HOME/miniconda3/envs/py2/bin/python"
+  #yesconda
+  conda deactivate || export PATH=$HOME/miniconda3/bin:${PATH};
+  conda activate py2;
+  export PYTHONPATH=$HOME/miniconda3/envs/py2/lib:;
 }
 
 devconda3() {
-  source deactivate || export PATH="$HOME/miniconda3/bin":${PATH};
-  source activate testenv;
-  export PYTHONPATH="$HOME/miniconda3/envs/py3/lib:";
-  alias python="$HOME/miniconda3/envs/py3/bin/python"
+  conda deactivate || export PATH="$HOME/miniconda3/bin":${PATH};
+  conda activate testenv;
+  export PYTHONPATH=$HOME/miniconda3/envs/py3/lib:;
 }
 
 noconda() {
-  source deactivate || export PATH="/$HOME.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86:/opt/EPICS/base/bin/darwin-x86"
-  export ROOTSYS="/usr/local/Cellar/root6/"
-  export PYTHONPATH="/usr/local/lib/root/"
+  conda deactivate || export PATH=/$HOME.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin
+  export ROOTSYS=/Users/michael/software/root/build
+  export PYTHONPATH=$ROOTSYS/lib
   pushd /usr/local >/dev/null
-  . /usr/local/bin/thisroot.sh
+  . $ROOTSYS/bin/thisroot.sh
   popd >/dev/null
 }
 
-update_all() {
-  upgrade_oh_my_zsh 
-  noconda 
-  brew update 
-  brew upgrade 
-  py2
-  conda update --all -y
-  noconda 
-  py3
-  conda update --all -y 
-  noconda
+update_doom() {
+  $HOME/.emacs.d/bin/doom upgrade
+  #$HOME/.emacs.d/bin/doom -y compile
 }
 
+update_all() {
+  echo "Upgrading oh-my-zsh...";
+  $ZSH/tools/upgrade.sh
+  echo "Upgrading rust...";
+  rustup update;
+  echo "Upgrading doom-emacs...";
+  update_doom;
+  mamba update -n base -c defaults conda -y;
+  conda deactivate
+}
 
-#alias gcc='gcc-7'
-#alias g++='g++-7'
+#epics_env() {
+#  export EPICS_BASE="/Users/michael/work/mu2e/daq_dev/epics/base-3.15.3"
+#  export PATH="$EPICS_BASE/bin/darwin-x86/:$PATH"
+#  export EPICS_EXTENSIONS="$EPICS_BASE/../extensions"
+#  export PATH="$EPICS_EXTENSIONS/bin/darwin-x86/:$PATH"
+#  export EPICS_HOST_ARCH=`$EPICS_BASE/startup/EpicsHostArch.pl`
+#  export LD_LIBRARY_PATH=$EPICS_BASE/lib/$EPICS_HOST_ARCH:$LD_LIBRARY_PATH
+#  export CPLUS_INCLUDE_PATH=$EPICS_BASE/include/compiler/clang
+#}
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

@@ -1,10 +1,15 @@
 [user]
 	name = Michael Hedges
-	email = mhedges@hawaii.edu
+	email = hedges7@purdue.edu
 [core]
 	autocrlf = input
 	safecrlf = true
-	excludesfile = /Users/BEASTzilla/.gitignore_global
-	editor = mvim
+	excludesfile = $HOME/.gitignore_global
+	editor = emacs
 [push]
 	default = matching
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

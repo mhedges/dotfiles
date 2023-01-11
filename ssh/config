@@ -1,11 +1,251 @@
+# DESY Hosts
+Host desy
+  User mhedges
+  Hostname naf-belle2.desy.de
+  IdentityFile ~/.ssh/id_rsa_bonn
+  ServerAliveCountMax=30
+  ServerAliveInterval=5
+  ForwardAgent yes
+  ForwardX11 yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  compression yes
+
+Host gitlab.desy.de
+  IdentityFile ~/.ssh/id_rsa_bonn
+
+# Purdue hosts
+Host planck
+  User hedges7
+  Hostname planck.physics.purdue.edu
+  IdentityFile ~/.ssh/id_rsa_purdue_login
+  ServerAliveCountMax=30
+  ServerAliveInterval=5
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  compression yes
+
+Host hubble
+  User hedges7
+  Hostname hubble.physics.purdue.edu
+  IdentityFile ~/.ssh/id_rsa_purdue_login
+  ServerAliveCountMax=30
+  ServerAliveInterval=5
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  compression yes
+  ProxyCommand ssh planck -W %h:%p
+ 
+Host lambertson
+  User mhedges
+  Hostname lambertson
+  ServerAliveCountMax=30
+  ServerAliveInterval=5
+  ControlMaster auto
+  ControlPersist 600
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  compression yes
+  ProxyCommand ssh planck -W %h:%p
+ 
+ Host desktop
+  User mhedges
+  Hostname 10.164.19.89
+  ForwardAgent yes
+  Port 936
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  compression yes
+  ProxyCommand ssh planck -W %h:%p
+
+Host gilbreth
+  User hedges7
+  Hostname gilbreth.rcac.purdue.edu
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  compression yes
+
+# Mu2e hosts
+Host mu2e01
+  User mhedges
+  Hostname mu2egpvm01.fnal.gov
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+
+Host mu2e02
+  User mhedges
+  Hostname mu2egpvm02.fnal.gov
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+
+Host mu2e03
+  User mhedges
+  Hostname mu2egpvm03.fnal.gov
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+
+Host mu2e04
+  User mhedges
+  Hostname mu2egpvm04.fnal.gov
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+
+Host mu2e05
+  User mhedges
+  Hostname mu2egpvm05.fnal.gov
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+
+Host mu2e06
+  User mhedges
+  Hostname mu2egpvm06.fnal.gov
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+
+Host mu2epix01
+  User mhedges
+  Hostname mu2epix01.fnal.gov
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+  ProxyCommand ssh mu2e04 -W %h:%p
+  Compression yes
+  LocalForward 5069 localhost:5069
+
+Host mu2epix02
+  User mhedges
+  Hostname mu2epix02.fnal.gov
+  IdentityFile ~/.ssh/id_rsa_sidet_pix02
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+  ProxyCommand ssh mu2e04 -W %h:%p
+  Compression yes
+
+Host mu2epix03
+  User mhedges
+  Hostname mu2epix03.fnal.gov
+  IdentityFile ~/.ssh/id_rsa_sidet_pix02
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  PasswordAuthentication yes
+  ProxyCommand ssh mu2e04 -W %h:%p
+  Compression yes
+
+Host sidet_pix02
+  User mhedges
+  Hostname 192.168.40.12
+  IdentityFile ~/.ssh/id_rsa_sidet_pix02
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ControlMaster auto
+  ControlPersist 600
+  Compression yes
+  ProxyCommand ssh -o ClearAllForwardings=yes mu2epix01 -W %h:%p
+
+Host debian_bbone
+  User debian
+  Hostname 192.168.40.11
+  IdentityFile ~/.ssh/id_rsa_mhedges_bbone
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ControlMaster no
+  Compression yes
+  ProxyCommand ssh -o ClearAllForwardings=yes mu2epix01 -W %h:%p
+
+Host epics_bbone
+  User epics
+  Hostname 192.168.40.11
+  IdentityFile ~/.ssh/id_rsa_mhedges_bbone
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ControlMaster no
+  Compression yes
+  ProxyCommand ssh -o ClearAllForwardings=yes mu2epix01 -W %h:%p
+
+Host tem_laptop
+  User mhedges
+  Hostname 192.168.40.1
+  IdentityFile ~/.ssh/id_rsa_mhedges_bbone
+  ForwardAgent yes
+  #ForwardX11 yes
+  #ForwardX11Trusted yes
+  ControlMaster no
+  Compression yes
+  ProxyCommand ssh -o ClearAllForwardings=yes mu2epix01 -W %h:%p
+
+Host mu2edcs
+  User mu2edcs
+  Hostname mu2edaq01.fnal.gov
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  Compression yes
+  ProxyCommand ssh mu2e04 -W %h:%p
+
+Host mu2edaq09
+  User mu2etrk
+  Hostname mu2edaq09.fnal.gov
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+  Compression yes
+  ProxyCommand ssh mu2e04 -W %h:%p
+
+Host cdcvs.fnal.gov
+  ForwardX11 = no
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+
+
+# UH services
 Host kekcc
 	User mhedges
 	Hostname ccx.cc.kek.jp
 	# use control hub to use only one ssh channel for all
 	# connections, faster, and password only on first connection
-	ControlMaster auto
-	ControlPath ~/.ssh/%r@%h:%p.control
-	ControlPersist 600
 
 	# Forward SSH Key Agent, this allows to log back into home
 	# machines using your local private key
@@ -15,7 +255,7 @@ Host kekcc
 	ForwardX11 no
 	ForwardX11Trusted no
 
-	# Use compressoin
+	# Use compression
 	compression yes
 
 	# Keep connection alive
@@ -28,41 +268,54 @@ Host d3
 	User mhedges
 	Hostname dcube.phys.hawaii.edu
 	Port 2505
+	IdentityFile ~/.ssh/id_rsa_dcube
 
 	# X11 forwarding
 	ForwardX11 yes
 	ForwardX11Trusted yes
+
+	ControlPersist 600
+	
+	# Keep connection alive
+	ServerAliveInterval 60
 	
 	#Use compression
 	compression yes
 
-Host work
+Host uh-work
 	User michael
 	Hostname dcube-w334-pc1
 	#
 	# use control hub to use only one ssh channel for all
 	# connections, faster, and password only on first connection
-	ControlMaster auto
-	ControlPath ~/.ssh/%r@%h:%p.control
 	ControlPersist 600
 
 	# Forward SSH Key Agent, this allows to log back into home
 	# machines using your local private key
-	ForwardAgent yes
 
-	# No X11 to kekcc
+	# No X11
 	ForwardX11 no
 	ForwardX11Trusted no
 
-	# Use compressoin
+	# Use compression
 	compression yes
 
 	# Keep connection alive
 	ServerAliveInterval 60
 
-	# Use this to connect to kekcc via dcube
+	# Use this to connect to work pc via dcube
 	ProxyCommand ssh mhedges@dcube.phys.hawaii.edu -W %h:%p
 
 Host *
    AddKeysToAgent yes
    UseKeychain yes 
+   ForwardAgent yes
+   ServerAliveInterval 300
+   IdentitiesOnly yes
+
+Host stash.desy.de
+  IdentityFile ~/.ssh/id_rsa_bonn
+
+Host github.com
+  IdentityFile ~/.ssh/id_rsa_bonn
+

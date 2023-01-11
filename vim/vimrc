@@ -2,6 +2,8 @@
 set nocompatible              " required
 filetype off                  " required
 
+colors zenburn
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
@@ -14,8 +16,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " We could also add repositories with a '.git' extension
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'jiangxincode/vim-kite'
-
 " To get plugins from Vim Scripts, you can reference the plugin
 " by name as it appears on the site
 Plugin 'scrooloose/syntastic'
@@ -203,7 +203,7 @@ let g:syntastic_python_checkers = ['python']
 set nohlsearch
 
 " Remap ESC
-inoremap jj <ESC>  
+inoremap jk <ESC>  
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

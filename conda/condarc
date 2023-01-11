@@ -1,5 +1,3 @@
 channels:
   - https://conda.anaconda.org/conda-forge
-  - https://conda.anaconda.org/ActivisionGameScience
-  - https://conda.anaconda.org/NLeSC
   - defaults
