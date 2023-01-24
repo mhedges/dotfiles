@@ -99,8 +99,6 @@ bindkey "^n" history-beginning-search-forward-end
 
 #export PATH="/Users/michael/miniconda3/bin":${PATH}
 
-#pushd $(brew --prefix root) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -164,8 +162,3 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 conda deactivate
-
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-eval "$(/usr/libexec/path_helper)"
-export PATH="/usr/local/opt/sphinx-doc/bin:$PATH"
