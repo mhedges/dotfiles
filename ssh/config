@@ -308,7 +308,6 @@ Host uh-work
 
 Host *
    AddKeysToAgent yes
-   UseKeychain yes 
    ForwardAgent yes
    ServerAliveInterval 300
    IdentitiesOnly yes
@@ -317,5 +316,5 @@ Host stash.desy.de
   IdentityFile ~/.ssh/id_rsa_bonn
 
 Host github.com
-  IdentityFile ~/.ssh/id_rsa_bonn
+  IdentityFile ~/.ssh/id_home_desktop
 
