@@ -22,3 +22,6 @@ ln -fs ${BASEDIR}/tmux/tmux.conf ~/.tmux.conf
 
 # alacritty
 ln -fs ${BASEDIR}/alacritty/alacritty.yaml ~/.config/alacritty.yaml
+
+# hyprland
+ln -fs ${BASEDIR}/hypr/hyprland.conf ~/.config/hypr/hyprland.conf
